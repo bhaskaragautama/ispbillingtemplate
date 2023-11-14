@@ -1,0 +1,35 @@
+// custom variables
+$grid-columns: 15;
+$secondary: #b5c2ca;
+$primary: #081225;
+$success: #8bfa94;
+$info: #3ed0f8;
+$warning: #aa5bee;
+$font-size-base: 0.8rem;
+$font-family-sans-serif: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+
+// Required
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/variables-dark";
+
+// Create your own map
+$custom-colors: (
+    "base": #b5c2ca,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Then add additional custom code here
+.alert {
+    border: none;
+}
+
+.aside-item {
+    transition: 0.3s;
+}
