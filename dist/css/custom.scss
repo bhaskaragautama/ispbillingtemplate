@@ -1,10 +1,12 @@
-// custom variables
+// custom colors
 $grid-columns: 15;
 $secondary: #b5c2ca;
 $primary: #081225;
 $success: #8bfa94;
 $info: #3ed0f8;
 $warning: #aa5bee;
+
+// custom fonts
 $font-size-base: 0.8rem;
 $font-family-sans-serif: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
@@ -14,6 +16,12 @@ $font-family-sans-serif: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/variables-dark";
+
+// custom dropdown
+$dropdown-border-color: transparent;
+$dropdown-padding-x: 0.5rem;
+$dropdown-item-padding-x: $spacer * 0.75;
+$dropdown-link-hover-bg: var(--#{$prefix}secondary-bg);
 
 // Create your own map
 $custom-colors: (
@@ -30,6 +38,61 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
     border: none;
 }
 
-.aside-item {
+.aside-item,
+.dropdown-item:hover {
     transition: 0.3s;
+}
+
+.dropdown-menu {
+    animation: 0.5s fadein;
+}
+
+.dropdown-item {
+    margin-bottom: $spacer * 0.25;
+}
+
+.dropdown-item:hover {
+    border-radius: $border-radius-pill;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.content-container {
+    padding: $spacer * 1.5;
+    background-color: $white;
+    box-shadow: $box-shadow;
+    border-radius: 1rem;
+    color: $primary;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: $border-radius-pill;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $secondary;
+    border-radius: $border-radius-pill;
+    cursor: pointer;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: $gray-600;
+    cursor: pointer;
 }
