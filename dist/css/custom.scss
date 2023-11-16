@@ -1,10 +1,10 @@
 // custom colors
-$grid-columns: 15;
+$grid-columns: 16;
 $secondary: #b5c2ca;
 $primary: #081225;
 $success: #8bfa94;
 $info: #3ed0f8;
-$warning: #aa5bee;
+$warning: #8637ca;
 
 // custom fonts
 $font-size-base: 0.8rem;
@@ -16,12 +16,35 @@ $font-family-sans-serif: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/variables-dark";
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/utilities";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "width": map-merge(
+      map-get($utilities, "width"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "width"), "values"),
+          (10: 10%, 8: 8%),
+        ),
+      ),
+    ),
+  )
+);
+
+@import "../../node_modules/bootstrap/scss/utilities/api";
 
 // custom dropdown
 $dropdown-border-color: transparent;
 $dropdown-padding-x: 0.5rem;
 $dropdown-item-padding-x: $spacer * 0.75;
 $dropdown-link-hover-bg: var(--#{$prefix}secondary-bg);
+
+//custom table
+$table-color: $gray-800;
 
 // Create your own map
 $custom-colors: (
@@ -39,7 +62,8 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 }
 
 .aside-item,
-.dropdown-item:hover {
+.dropdown-item:hover,
+td {
     transition: 0.3s;
 }
 
@@ -68,7 +92,8 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 .content-container {
     padding: $spacer * 1.5;
     background-color: $white;
-    box-shadow: $box-shadow;
+    // box-shadow: $box-shadow;
+    height: 100%;
     border-radius: 1rem;
     color: $primary;
 }
@@ -86,7 +111,7 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: $secondary;
+    background: $gray-700;
     border-radius: $border-radius-pill;
     cursor: pointer;
 }
