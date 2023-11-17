@@ -2,7 +2,7 @@
 $grid-columns: 16;
 $secondary: #b5c2ca;
 $primary: #081225;
-$success: #8bfa94;
+$success: #74f77f;
 $info: #3ed0f8;
 $warning: #8637ca;
 
@@ -11,7 +11,7 @@ $font-size-base: 0.8rem;
 $font-family-sans-serif: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-
+$enable-negative-margins: true;
 // Required
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
@@ -33,11 +33,19 @@ $utilities: map-merge(
         ),
       ),
     ),
+    "height": map-merge(
+      map-get($utilities, "height"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "height"), "values"),
+          (15: 15%, 10: 10%, 8: 8%),
+        ),
+      ),
+    ),
   )
 );
 
 @import "../../node_modules/bootstrap/scss/utilities/api";
-$enable-negative-margins: true;
 
 // custom dropdown
 $dropdown-border-color: transparent;
@@ -98,6 +106,11 @@ td {
     height: 100%;
     border-radius: 1rem;
     color: $primary;
+}
+
+.small-square {
+    width: 8%;
+    padding-top: 8%;
 }
 
 /* width */
