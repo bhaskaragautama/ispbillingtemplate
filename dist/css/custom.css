@@ -482,6 +482,10 @@
   width: auto !important;
 }
 
+.w-15 {
+  width: 15% !important;
+}
+
 .w-10 {
   width: 10% !important;
 }
@@ -12702,6 +12706,10 @@ textarea.form-control-lg {
 
 .w-auto {
   width: auto !important;
+}
+
+.w-15 {
+  width: 15% !important;
 }
 
 .w-10 {

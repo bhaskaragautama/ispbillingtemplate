@@ -20,6 +20,7 @@ $font-family-sans-serif: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/utilities";
 
+
 $utilities: map-merge(
   $utilities,
   (
@@ -28,7 +29,7 @@ $utilities: map-merge(
       (
         values: map-merge(
           map-get(map-get($utilities, "width"), "values"),
-          (10: 10%, 8: 8%),
+          (15: 15%, 10: 10%, 8: 8%),
         ),
       ),
     ),
@@ -36,6 +37,7 @@ $utilities: map-merge(
 );
 
 @import "../../node_modules/bootstrap/scss/utilities/api";
+$enable-negative-margins: true;
 
 // custom dropdown
 $dropdown-border-color: transparent;
