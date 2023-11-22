@@ -12,6 +12,7 @@ $font-family-sans-serif: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto
     "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 $enable-negative-margins: true;
+
 // Required
 @import "../../node_modules/bootstrap/scss/functions";
 @import "../../node_modules/bootstrap/scss/variables";
@@ -20,6 +21,7 @@ $enable-negative-margins: true;
 @import "../../node_modules/bootstrap/scss/mixins";
 @import "../../node_modules/bootstrap/scss/utilities";
 
+// Utilities addition
 $utilities: map-merge(
     $utilities,
     (
@@ -64,6 +66,9 @@ $dropdown-padding-x: 0.5rem;
 $dropdown-item-padding-x: $spacer * 0.75;
 $dropdown-link-hover-bg: var(--#{$prefix}secondary-bg);
 
+// Custom alert
+$alert-border-width: 0;
+
 //custom table
 $table-color: $gray-800;
 
@@ -75,58 +80,11 @@ $custom-colors: (
 // Merge the maps
 $theme-colors: map-merge($theme-colors, $custom-colors);
 
-@import "../../node_modules/bootstrap/scss/bootstrap";
-
-// Then add additional custom code here
-.alert {
-    border: none;
-}
-
-.aside-item,
-.dropdown-item:hover,
-td {
-    transition: 0.3s;
-}
-
-.dropdown-menu {
-    animation: 0.5s fadein;
-}
-
-.dropdown-item {
-    margin-bottom: $spacer * 0.25;
-}
-
-.dropdown-item:hover {
-    border-radius: $border-radius-pill;
-}
-
-@keyframes fadein {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-.content-container {
-    padding: $spacer * 1.5;
-    background-color: $white;
-    // box-shadow: $box-shadow;
-    height: 100%;
-    border-radius: 1rem;
-    color: $primary;
-}
-
-.small-square {
-    width: 8%;
-    padding-top: 8%;
-}
-
+// Custom scrollbar
 /* width */
 ::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
 }
 
 /* Track */
@@ -147,3 +105,74 @@ td {
     background: $gray-600;
     cursor: pointer;
 }
+
+// Custom style
+.aside-item,
+.dropdown-item:hover,
+td {
+    transition: 0.3s;
+}
+
+.dropdown-menu {
+    animation: 0.5s fadein;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.dropdown-item {
+    @extend .mb-1;
+}
+
+.dropdown-item:hover {
+    @extend .rounded-pill;
+}
+
+// Custom components
+.main-sidebar {
+    @extend .h-100, .rounded-4, .bg-white, .shadow-sm;
+}
+
+.aside-item {
+    @extend .text-decoration-none,
+        .text-secondary-emphasis,
+        .d-block,
+        .px-3,
+        .py-2,
+        .mb-2,
+        .text-center,
+        .text-lg-start;
+}
+
+.aside-item.active,
+.aside-item:hover {
+    @extend .text-decoration-none,
+        .d-block,
+        .px-3,
+        .py-2,
+        .mb-2,
+        .bg-primary,
+        .text-white,
+        .rounded-pill;
+}
+
+.content-container {
+    @extend .p-4, .h-100, .rounded-4, .text-primary;
+}
+
+.alert-sm {
+    @extend .py-0, .px-1, .m-0, .d-inline-block;
+}
+
+.alert-tab {
+    @extend .py-1, .px-2, .fw-semibold;
+}
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
