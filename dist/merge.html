@@ -16,7 +16,10 @@
     <body class="bg-secondary overflow-hidden">
         <div class="container-fluid vh-100">
             <div class="row h-100">
-                <div class="col-2 col-lg-3 p-3 h-100 d-none d-md-block">
+                <div
+                    id="sidebar-content"
+                    class="col-2 col-lg-3 p-3 h-100 d-none d-md-block"
+                >
                     <aside class="main-sidebar p-3">
                         <div class="logo text-center pb-2 pb-lg-3">
                             <a href="#">
@@ -94,6 +97,7 @@
                     </aside>
                 </div>
                 <div
+                    id="main-content"
                     class="col-md-14 col-lg-13 py-3 ps-0 pe-2 h-100 d-flex flex-column"
                 >
                     <div class="container-fluid p-0 mb-3">
@@ -103,7 +107,9 @@
                                     class="navbar navbar-expand-lg rounded-4 p-2 bg-white shadow-sm"
                                 >
                                     <div class="container-fluid px-2">
-                                        <a href="#" class="d-none d-md-block"
+                                        <a
+                                            href="#"
+                                            class="d-none d-md-block toggle-sidebar"
                                             ><i
                                                 class="fas fa-fw fa-angles-left"
                                             ></i
@@ -604,6 +610,15 @@
                         },
                     },
                 },
+            });
+
+            $(document).ready(function () {
+                $(".toggle-sidebar").click(function () {
+                    $("#main-content").toggleClass(
+                        "col-md-14 col-lg-13 col-md-16 col-lg-16 position-absolute"
+                    );
+                    // $("#sidebar-content").toggleClass("d-md-block");
+                });
             });
         </script>
     </body>

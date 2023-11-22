@@ -109,7 +109,9 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 // Custom style
 .aside-item,
 .dropdown-item:hover,
-td {
+td, 
+.col-lg-13, 
+.col-lg-16 {
     transition: 0.3s;
 }
 
