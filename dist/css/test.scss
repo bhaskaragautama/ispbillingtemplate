@@ -58,6 +58,20 @@ $utilities: map-merge(
     )
 );
 
+$utilities: map-merge(
+    $utilities,
+    (
+        "min-height": (
+            property: min-height,
+            class: min-h,
+            responsive: true,
+            values: (
+                100: 100%,
+            ),
+        ),
+    )
+);
+
 @import "../../node_modules/bootstrap/scss/utilities/api";
 
 // custom dropdown
@@ -83,8 +97,8 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 // Custom scrollbar
 /* width */
 ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
+    width: 3px;
+    height: 3px;
 }
 
 /* Track */
@@ -109,8 +123,8 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 // Custom style
 .aside-item,
 .dropdown-item:hover,
-td, 
-.col-lg-13, 
+td,
+.col-lg-13,
 .col-lg-16 {
     transition: 0.3s;
 }

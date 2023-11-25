@@ -2170,6 +2170,10 @@
   z-index: 3 !important;
 }
 
+.min-h-100 {
+  min-height: 100% !important;
+}
+
 @media (min-width: 576px) {
   .float-sm-start {
     float: left !important;
@@ -2844,6 +2848,9 @@
   }
   .text-sm-center {
     text-align: center !important;
+  }
+  .min-h-sm-100 {
+    min-height: 100% !important;
   }
 }
 @media (min-width: 768px) {
@@ -3521,6 +3528,9 @@
   .text-md-center {
     text-align: center !important;
   }
+  .min-h-md-100 {
+    min-height: 100% !important;
+  }
 }
 @media (min-width: 992px) {
   .float-lg-start {
@@ -4196,6 +4206,9 @@
   }
   .text-lg-center {
     text-align: center !important;
+  }
+  .min-h-lg-100 {
+    min-height: 100% !important;
   }
 }
 @media (min-width: 1200px) {
@@ -4873,6 +4886,9 @@
   .text-xl-center {
     text-align: center !important;
   }
+  .min-h-xl-100 {
+    min-height: 100% !important;
+  }
 }
 @media (min-width: 1400px) {
   .float-xxl-start {
@@ -5549,6 +5565,9 @@
   .text-xxl-center {
     text-align: center !important;
   }
+  .min-h-xxl-100 {
+    min-height: 100% !important;
+  }
 }
 @media (min-width: 1200px) {
   .fs-1 {
@@ -5598,8 +5617,8 @@
 }
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 3px;
+  height: 3px;
 }
 
 /* Track */
@@ -15186,6 +15205,10 @@ textarea.form-control-lg {
   z-index: 3 !important;
 }
 
+.min-h-100 {
+  min-height: 100% !important;
+}
+
 @media (min-width: 576px) {
   .float-sm-start {
     float: left !important;
@@ -15860,6 +15883,9 @@ textarea.form-control-lg {
   }
   .text-sm-center {
     text-align: center !important;
+  }
+  .min-h-sm-100 {
+    min-height: 100% !important;
   }
 }
 @media (min-width: 768px) {
@@ -16537,6 +16563,9 @@ textarea.form-control-lg {
   .text-md-center {
     text-align: center !important;
   }
+  .min-h-md-100 {
+    min-height: 100% !important;
+  }
 }
 @media (min-width: 992px) {
   .float-lg-start {
@@ -17212,6 +17241,9 @@ textarea.form-control-lg {
   }
   .text-lg-center {
     text-align: center !important;
+  }
+  .min-h-lg-100 {
+    min-height: 100% !important;
   }
 }
 @media (min-width: 1200px) {
@@ -17889,6 +17921,9 @@ textarea.form-control-lg {
   .text-xl-center {
     text-align: center !important;
   }
+  .min-h-xl-100 {
+    min-height: 100% !important;
+  }
 }
 @media (min-width: 1400px) {
   .float-xxl-start {
@@ -18564,6 +18599,9 @@ textarea.form-control-lg {
   }
   .text-xxl-center {
     text-align: center !important;
+  }
+  .min-h-xxl-100 {
+    min-height: 100% !important;
   }
 }
 @media (min-width: 1200px) {
