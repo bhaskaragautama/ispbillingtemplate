@@ -183,4 +183,8 @@ td,
     @extend .py-1, .px-2, .fw-semibold;
 }
 
+#main-content {
+    transition: 0.3s;
+}
+
 @import "../../node_modules/bootstrap/scss/bootstrap";
