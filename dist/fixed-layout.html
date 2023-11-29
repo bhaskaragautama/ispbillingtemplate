@@ -14,31 +14,104 @@
         <link rel="stylesheet" href="css/test.css" />
     </head>
     <body class="bg-secondary">
-        <div class="mx-2">
-            <div class="container-fluid vh-100 bg-primary">
-                <div class="row h-100">
-                    <div class="col-3 h-100">
-                        <div class="my-3 flex-grow-1 bg-light">
+        <div class="py-3 px-1 vh-100">
+            <div class="container-fluid h-100">
+                <div class="row g-3 h-100">
+                    <div class="col-3 overflow-y-auto h-100 position-fixed">
+                        <div class="bg-light p-3 rounded-4 min-h-100">
                             Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Ipsum nam reiciendis itaque tempora autem quia
-                            amet quaerat eum? Eveniet nostrum aperiam eligendi
-                            deleniti minima velit dolore voluptatem pariatur
-                            dignissimos eos?
+                            elit. Impedit illo ab magnam iure? Est labore natus
+                            numquam minus, culpa deleniti dolores eveniet in
+                            soluta nam dolorum ad, asperiores sint quod! Lorem
+                            ipsum dolor sit amet consectetur adipisicing elit.
                         </div>
                     </div>
-                    <div class="col-13 bg-secondary">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Recusandae optio amet explicabo quos excepturi
-                        quis non reprehenderit dicta facere sit modi, veniam
-                        aspernatur consectetur fuga sint aut cum ullam libero.
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Recusandae optio amet explicabo quos excepturi
-                        quis non reprehenderit dicta facere sit modi, veniam
-                        aspernatur consectetur fuga sint aut cum ullam libero.
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Recusandae optio amet explicabo quos excepturi
-                        quis non reprehenderit dicta facere sit modi, veniam
-                        aspernatur consectetur fuga sint aut cum ullam libero.
+                    <div class="col-13 offset-3 overflow-y-auto h-100">
+                        <div class="vstack gap-3 h-100">
+                            <nav
+                                class="navbar navbar-expand-lg rounded-4 p-2 bg-white"
+                            >
+                                <div class="container-fluid px-2">
+                                    <a
+                                        href="#"
+                                        class="d-none d-md-block toggle-sidebar"
+                                        ><i class="fas fa-fw fa-angles-left"></i
+                                    ></a>
+                                    <a href="#" class="d-block d-md-none"
+                                        ><i class="fas fa-fw fa-bars"></i
+                                    ></a>
+                                    <button
+                                        class="navbar-toggler ms-auto p-2"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#navbarSupportedContent"
+                                        aria-controls="navbarSupportedContent"
+                                        aria-expanded="false"
+                                        aria-label="Toggle navigation"
+                                    >
+                                        <i class="fas fa-fw fa-user"></i>
+                                    </button>
+                                    <div
+                                        class="collapse navbar-collapse text-center text-lg-start"
+                                        id="navbarSupportedContent"
+                                    >
+                                        <ul
+                                            class="navbar-nav ms-auto mb-2 mb-lg-0"
+                                        >
+                                            <li
+                                                class="nav-item dropdown"
+                                                data-bs-animation="fade"
+                                            >
+                                                <a
+                                                    class="nav-link dropdown-toggle fw-semibold active"
+                                                    href="#"
+                                                    role="button"
+                                                    data-bs-toggle="dropdown"
+                                                    aria-expanded="false"
+                                                >
+                                                    <i
+                                                        class="fas fa-user-circle"
+                                                    ></i>
+                                                    Username
+                                                </a>
+                                                <ul
+                                                    class="dropdown-menu dropdown-menu-end rounded-3 shadow text-center text-lg-start"
+                                                >
+                                                    <li>
+                                                        <a
+                                                            class="dropdown-item"
+                                                            href="#"
+                                                            >Profile</a
+                                                        >
+                                                    </li>
+                                                    <li>
+                                                        <a
+                                                            class="dropdown-item"
+                                                            href="#"
+                                                            >Settings</a
+                                                        >
+                                                    </li>
+                                                    <li>
+                                                        <a
+                                                            class="dropdown-item"
+                                                            href="#"
+                                                            >Logout</a
+                                                        >
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                            <div class="bg-light p-3 rounded-4 flex-grow-1">
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Impedit illo ab magnam iure?
+                                Est labore natus numquam minus, culpa deleniti
+                                dolores eveniet in soluta nam dolorum ad,
+                                asperiores sint quod!
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
