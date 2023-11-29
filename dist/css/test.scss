@@ -152,10 +152,6 @@ td,
 }
 
 // Custom components
-.main-sidebar {
-    @extend .h-100, .rounded-4, .bg-white, .shadow-sm;
-}
-
 .aside-item {
     @extend .text-decoration-none,
         .text-secondary-emphasis,
@@ -177,10 +173,6 @@ td,
         .bg-primary,
         .text-white,
         .rounded-pill;
-}
-
-.content-container {
-    @extend .p-4, .h-100, .rounded-4, .text-primary;
 }
 
 .alert-sm {
