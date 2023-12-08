@@ -125,7 +125,8 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 .dropdown-item:hover,
 td,
 .col-lg-13,
-.col-lg-16 {
+.col-lg-16,
+#main-content {
     transition: 0.3s;
 }
 
@@ -181,10 +182,6 @@ td,
 
 .alert-tab {
     @extend .py-1, .px-2, .fw-semibold;
-}
-
-#main-content {
-    transition: 0.3s;
 }
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
