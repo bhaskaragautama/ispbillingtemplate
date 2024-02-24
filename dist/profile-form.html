@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ISP Billing System</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link href="assets/datatables/datatables.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body class="bg-secondary">
+        <!-- offcanvas here -->
+        <div class="py-3 px-1 vh-100">
+            <div class="container-fluid h-100">
+                <!-- remember to remove the id bellow when the font-end templating is no longer used -->
+                <div class="row g-3 justify-content-end h-100" id="side-nav">
+                    <!-- sidebar here -->
+                    <div
+                        id="main-content"
+                        class="col-md-11 col-lg-9 col-xl-10 overflow-y-auto overflow-x-hidden h-100"
+                    >
+                        <!-- remember to remove the id bellow when the font-end templating is no longer used -->
+                        <div class="vstack gap-3 h-100" id="navbar">
+                            <!-- navbar here -->
+                            <div
+                                class="bg-white py-3 px-1 rounded-4 flex-grow-1"
+                            >
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-16">
+                                            <div
+                                                class="hstack justify-content-between mb-3"
+                                            >
+                                                <h2 class="fw-semibold mb-0">
+                                                    Profile Management
+                                                </h2>
+                                            </div>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item">
+                                                        <a href="profile.html"
+                                                            >Profile</a
+                                                        >
+                                                    </li>
+                                                    <li
+                                                        class="breadcrumb-item active"
+                                                        aria-current="page"
+                                                    >
+                                                        Form
+                                                    </li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="mb-3">
+                                                <label
+                                                    for="profile-name"
+                                                    class="form-label"
+                                                    >Profile Name
+                                                    <span class="text-danger"
+                                                        >*</span
+                                                    ></label
+                                                >
+                                                <input
+                                                    type="text"
+                                                    name="profile-name"
+                                                    id="profile-name"
+                                                    class="form-control"
+                                                    autofocus
+                                                    required
+                                                />
+                                            </div>
+                                            <div class="mb-4">
+                                                <label
+                                                    for="price"
+                                                    class="form-label"
+                                                    >Price
+                                                    <span class="text-danger"
+                                                        >*</span
+                                                    ></label
+                                                >
+                                                <div class="input-group">
+                                                    <span
+                                                        class="input-group-text"
+                                                        id="price-currency"
+                                                        >Rp</span
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        name="price"
+                                                        id="price"
+                                                        class="form-control"
+                                                        required
+                                                        aria-describedby="price-currency"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="position-relative my-5 p-3 rounded-end-4 rounded-bottom-4 bg-secondary-subtle"
+                                            >
+                                                <div
+                                                    class="position-absolute top-0 translate-middle-y start-0 mt-n2 py-2 px-3 rounded-top-4 small fw-semibold text-primary bg-secondary-subtle"
+                                                >
+                                                    RATE LIMITS
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label"
+                                                        >Rate Limit</label
+                                                    >
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div
+                                                                class="input-group"
+                                                            >
+                                                                <span
+                                                                    class="input-group-text"
+                                                                    id="rate-limit-rx-label"
+                                                                    >Rx</span
+                                                                >
+                                                                <input
+                                                                    type="text"
+                                                                    name="rate-limit-rx"
+                                                                    id="rate-limit-rx"
+                                                                    class="form-control"
+                                                                    required
+                                                                    aria-describedby="rate-limit-rx-label"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div
+                                                                class="input-group"
+                                                            >
+                                                                <span
+                                                                    class="input-group-text"
+                                                                    id="rate-limit-tx-label"
+                                                                    >Tx</span
+                                                                >
+                                                                <input
+                                                                    type="text"
+                                                                    name="rate-limit-tx"
+                                                                    id="rate-limit-tx"
+                                                                    class="form-control"
+                                                                    required
+                                                                    aria-describedby="rate-limit-tx-label"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label"
+                                                        >Burst Limit</label
+                                                    >
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div
+                                                                class="input-group"
+                                                            >
+                                                                <span
+                                                                    class="input-group-text"
+                                                                    id="burst-limit-rx-label"
+                                                                    >Rx</span
+                                                                >
+                                                                <input
+                                                                    type="text"
+                                                                    name="burst-limit-rx"
+                                                                    id="burst-limit-rx"
+                                                                    class="form-control"
+                                                                    required
+                                                                    aria-describedby="burst-limit-rx-label"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div
+                                                                class="input-group"
+                                                            >
+                                                                <span
+                                                                    class="input-group-text"
+                                                                    id="burst-limit-tx"
+                                                                    >Tx</span
+                                                                >
+                                                                <input
+                                                                    type="text"
+                                                                    name="burst-limit-tx"
+                                                                    id="burst-limit-tx"
+                                                                    class="form-control"
+                                                                    required
+                                                                    aria-describedby="burst-limit-tx"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label"
+                                                        >Burst Threshold</label
+                                                    >
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div
+                                                                class="input-group"
+                                                            >
+                                                                <span
+                                                                    class="input-group-text"
+                                                                    id="burst-threshold-rx-label"
+                                                                    >Rx</span
+                                                                >
+                                                                <input
+                                                                    type="text"
+                                                                    name="burst-threshold-rx"
+                                                                    id="burst-threshold-rx"
+                                                                    class="form-control"
+                                                                    required
+                                                                    aria-describedby="burst-threshold-rx-label"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div
+                                                                class="input-group"
+                                                            >
+                                                                <span
+                                                                    class="input-group-text"
+                                                                    id="burst-threshold-tx"
+                                                                    >Tx</span
+                                                                >
+                                                                <input
+                                                                    type="text"
+                                                                    name="burst-threshold-tx"
+                                                                    id="burst-threshold-tx"
+                                                                    class="form-control"
+                                                                    required
+                                                                    aria-describedby="burst-threshold-tx"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label"
+                                                        >Burst Time</label
+                                                    >
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div
+                                                                class="input-group"
+                                                            >
+                                                                <span
+                                                                    class="input-group-text"
+                                                                    id="burst-time-rx-label"
+                                                                    >Rx</span
+                                                                >
+                                                                <input
+                                                                    type="text"
+                                                                    name="burst-time-rx"
+                                                                    id="burst-time-rx"
+                                                                    class="form-control"
+                                                                    required
+                                                                    aria-describedby="burst-time-rx-label"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div
+                                                                class="input-group"
+                                                            >
+                                                                <span
+                                                                    class="input-group-text"
+                                                                    id="burst-time-tx"
+                                                                    >Tx</span
+                                                                >
+                                                                <input
+                                                                    type="text"
+                                                                    name="burst-time-tx"
+                                                                    id="burst-time-tx"
+                                                                    class="form-control"
+                                                                    required
+                                                                    aria-describedby="burst-time-tx"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label"
+                                                        >Min Rate</label
+                                                    >
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                            <div
+                                                                class="input-group"
+                                                            >
+                                                                <span
+                                                                    class="input-group-text"
+                                                                    id="min-rate-rx-label"
+                                                                    >Rx</span
+                                                                >
+                                                                <input
+                                                                    type="text"
+                                                                    name="min-rate-rx"
+                                                                    id="min-rate-rx"
+                                                                    class="form-control"
+                                                                    required
+                                                                    aria-describedby="min-rate-rx-label"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-6">
+                                                            <div
+                                                                class="input-group"
+                                                            >
+                                                                <span
+                                                                    class="input-group-text"
+                                                                    id="min-rate-tx"
+                                                                    >Tx</span
+                                                                >
+                                                                <input
+                                                                    type="text"
+                                                                    name="min-rate-tx"
+                                                                    id="min-rate-tx"
+                                                                    class="form-control"
+                                                                    required
+                                                                    aria-describedby="min-rate-tx"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label
+                                                        for="priority"
+                                                        class="form-label"
+                                                        >Priority</label
+                                                    >
+                                                    <select
+                                                        name="priority"
+                                                        id="priority"
+                                                        class="form-select"
+                                                    >
+                                                        <option value="">
+                                                            Select Priority
+                                                        </option>
+                                                        <option value="1">
+                                                            1
+                                                        </option>
+                                                        <option value="2">
+                                                            2
+                                                        </option>
+                                                        <option value="3">
+                                                            3
+                                                        </option>
+                                                        <option value="4">
+                                                            4
+                                                        </option>
+                                                        <option value="5">
+                                                            5
+                                                        </option>
+                                                        <option value="6">
+                                                            6
+                                                        </option>
+                                                        <option value="7">
+                                                            7
+                                                        </option>
+                                                        <option value="8">
+                                                            8
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="position-relative my-5 p-3 rounded-end-4 rounded-bottom-4 bg-secondary-subtle"
+                                            >
+                                                <div
+                                                    class="position-absolute top-0 translate-middle-y start-0 mt-n2 py-2 px-3 rounded-top-4 small fw-semibold text-primary bg-secondary-subtle"
+                                                >
+                                                    LIMITS
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label
+                                                        for="group"
+                                                        class="form-label"
+                                                        >Group</label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        name="group"
+                                                        id="group"
+                                                        class="form-control"
+                                                    />
+                                                    <div
+                                                        id="groupHelp"
+                                                        class="form-text"
+                                                    >
+                                                        This group means PPP
+                                                        profile on Mikrotik. If
+                                                        the group is filled in
+                                                        then the group becomes
+                                                        the parent of this
+                                                        profile, such as queue
+                                                        and so on. This group
+                                                        can be checked in the
+                                                        Mikrotik menu: PPP >
+                                                        Profiles.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a
+                                                href="profile.html"
+                                                class="btn btn-secondary"
+                                            >
+                                                <i
+                                                    class="bi bi-arrow-counterclockwise"
+                                                ></i>
+                                                Back
+                                            </a>
+                                            <button
+                                                type="submit"
+                                                class="btn btn-primary"
+                                            >
+                                                <i
+                                                    class="bi bi-floppy2-fill"
+                                                ></i>
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- templating script -->
+        <script src="js/include.offcanvas.js"></script>
+        <script src="js/include.side.nav.js"></script>
+        <script src="js/include.navbar.js"></script>
+        <!-- end oftemplating script -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="assets/datatables/datatables.min.js"></script>
+        <script src="js/dropdown.menu.js"></script>
+        <script src="js/nav.link.js"></script>
+        <script src="js/toggle.sidebar.js"></script>
+        <script>
+            $(document).ready(function () {
+                setTimeout(function () {
+                    $(".nav-to[data-link='profile']").addClass("active");
+                }, 50);
+            });
+        </script>
+    </body>
+</html>

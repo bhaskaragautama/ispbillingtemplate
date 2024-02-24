@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ISP Billing System</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link href="assets/datatables/datatables.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body class="bg-secondary">
+        <!-- offcanvas here -->
+        <div class="py-3 px-1 vh-100">
+            <div class="container-fluid h-100">
+                <!-- remember to remove the id bellow when the font-end templating is no longer used -->
+                <div class="row g-3 justify-content-end h-100" id="side-nav">
+                    <!-- sidebar here -->
+                    <div
+                        id="main-content"
+                        class="col-md-11 col-lg-9 col-xl-10 overflow-y-auto overflow-x-hidden h-100"
+                    >
+                        <!-- remember to remove the id bellow when the font-end templating is no longer used -->
+                        <div class="vstack gap-3 h-100" id="navbar">
+                            <!-- navbar here -->
+                            <div
+                                class="bg-white py-3 px-1 rounded-4 flex-grow-1"
+                            >
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-16">
+                                            <div class="hstack gap-3 mb-3">
+                                                <h2 class="fw-semibold mb-0">
+                                                    Customers Management (For
+                                                    Admin)
+                                                </h2>
+                                                <a
+                                                    href="customers-form-add-opt.html"
+                                                    title="For mockup purposes only"
+                                                    >Switch to Operator</a
+                                                >
+                                            </div>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item">
+                                                        <a href="customers.html"
+                                                            >Customers List</a
+                                                        >
+                                                    </li>
+                                                    <li
+                                                        class="breadcrumb-item active"
+                                                        aria-current="page"
+                                                    >
+                                                        Form
+                                                    </li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <form
+                                                action=""
+                                                method=""
+                                                class="mt-4"
+                                            >
+                                                <div
+                                                    class="position-relative mb-5 p-3 rounded-end-4 rounded-bottom-4 bg-secondary-subtle"
+                                                >
+                                                    <div
+                                                        class="position-absolute top-0 translate-middle-y start-0 mt-n2 py-2 px-3 rounded-top-4 small fw-semibold text-primary bg-secondary-subtle"
+                                                    >
+                                                        MAIN
+                                                        <span
+                                                            class="text-danger"
+                                                            >*</span
+                                                        >
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label
+                                                            for="user-type"
+                                                            class="form-label"
+                                                            >User Type
+                                                            <span
+                                                                class="text-danger"
+                                                                >*</span
+                                                            ></label
+                                                        >
+                                                        <select
+                                                            name="user-type"
+                                                            id="user-type"
+                                                            class="form-select"
+                                                        >
+                                                            <option value="">
+                                                                PPPoE
+                                                            </option>
+                                                            <option value="">
+                                                                DHCP
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label
+                                                            for="username"
+                                                            class="form-label"
+                                                            >Username
+                                                            <span
+                                                                class="text-danger"
+                                                                >*</span
+                                                            ></label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            name="username"
+                                                            id="username"
+                                                            class="form-control"
+                                                            required
+                                                        />
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label
+                                                                    for="password"
+                                                                    class="form-label"
+                                                                    >Password
+                                                                    <span
+                                                                        class="text-danger"
+                                                                        >*</span
+                                                                    ></label
+                                                                >
+                                                                <input
+                                                                    type="password"
+                                                                    name="password"
+                                                                    id="password"
+                                                                    class="form-control"
+                                                                    required
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <label
+                                                                    for="re-password"
+                                                                    class="form-label"
+                                                                    >Re-type
+                                                                    Password
+                                                                    <span
+                                                                        class="text-danger"
+                                                                        >*</span
+                                                                    ></label
+                                                                >
+                                                                <input
+                                                                    type="password"
+                                                                    name="re-password"
+                                                                    id="re-password"
+                                                                    class="form-control"
+                                                                    required
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label
+                                                            for="profile"
+                                                            class="form-label"
+                                                            >Profile
+                                                            <span
+                                                                class="text-danger"
+                                                                >*</span
+                                                            ></label
+                                                        >
+                                                        <select
+                                                            name="profile"
+                                                            id="profile"
+                                                            class="form-select"
+                                                        >
+                                                            <option value="">
+                                                                -- Select
+                                                                profile --
+                                                            </option>
+                                                            <option value="">
+                                                                Fiber up to
+                                                                15Mbps
+                                                            </option>
+                                                            <option value="">
+                                                                Fiber up to
+                                                                25Mbps
+                                                            </option>
+                                                            <option value="">
+                                                                Fiber up to
+                                                                30Mbps
+                                                            </option>
+                                                            <option value="">
+                                                                Fiber up to
+                                                                35Mbps
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="position-relative my-5 p-3 rounded-end-4 rounded-bottom-4 bg-secondary-subtle"
+                                                >
+                                                    <div
+                                                        class="position-absolute top-0 translate-middle-y start-0 mt-n2 py-2 px-3 rounded-top-4 small fw-semibold text-primary bg-secondary-subtle"
+                                                    >
+                                                        CONSTRAINT
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label
+                                                            for="nas"
+                                                            class="form-label"
+                                                            >Router NAS</label
+                                                        >
+                                                        <select
+                                                            name="nas"
+                                                            id="nas"
+                                                            class="form-select"
+                                                        >
+                                                            <option value="">
+                                                                -- Select NAS --
+                                                            </option>
+                                                            <option value="">
+                                                                All
+                                                            </option>
+                                                            <option value="">
+                                                                X86_Public
+                                                            </option>
+                                                            <option value="">
+                                                                pppoe-server
+                                                            </option>
+                                                            <option value="">
+                                                                CCRRingin
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label
+                                                            for="ip"
+                                                            class="form-label"
+                                                            >IP Address</label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            name="ip"
+                                                            id="ip"
+                                                            class="form-control"
+                                                        />
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label
+                                                            for="service"
+                                                            class="form-label"
+                                                            >Service Name</label
+                                                        >
+                                                        <input
+                                                            type="text"
+                                                            name="service"
+                                                            id="service"
+                                                            class="form-control"
+                                                        />
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label
+                                                            for="lock-check"
+                                                            class="form-label"
+                                                            >Lock MAC</label
+                                                        >
+                                                        <div
+                                                            class="hstack gap-3"
+                                                        >
+                                                            <div>
+                                                                <input
+                                                                    type="checkbox"
+                                                                    name="lock-check"
+                                                                    id="lock-check"
+                                                                    class="form-check-input"
+                                                                />
+                                                            </div>
+                                                            <div
+                                                                class="flex-grow-1"
+                                                            >
+                                                                <input
+                                                                    type="text"
+                                                                    name="lock-text"
+                                                                    id="lock-text"
+                                                                    class="form-control"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    class="position-relative my-5 p-3 rounded-end-4 rounded-bottom-4 bg-secondary-subtle"
+                                                >
+                                                    <div
+                                                        class="position-absolute top-0 translate-middle-y start-0 mt-n2 py-2 px-3 rounded-top-4 small fw-semibold text-primary bg-secondary-subtle"
+                                                    >
+                                                        STATUS
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label
+                                                            for="status"
+                                                            class="form-label"
+                                                            >Status</label
+                                                        >
+                                                        <select
+                                                            name="status"
+                                                            id="status"
+                                                            class="form-select"
+                                                        >
+                                                            <option value="">
+                                                                Enabled
+                                                            </option>
+                                                            <option value="">
+                                                                Suspended
+                                                            </option>
+                                                            <option value="">
+                                                                Disabled
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div
+                                                        class="form-check form-switch"
+                                                    >
+                                                        <input
+                                                            class="form-check-input"
+                                                            type="checkbox"
+                                                            role="switch"
+                                                            id="add-billing"
+                                                            checked
+                                                        />
+                                                        <label
+                                                            class="form-check-label"
+                                                            for="add-billing"
+                                                            >Add to
+                                                            Billing</label
+                                                        >
+                                                    </div>
+                                                </div>
+                                                <div id="billing-container">
+                                                    <div
+                                                        class="position-relative my-5 p-3 rounded-end-4 rounded-bottom-4 bg-secondary-subtle"
+                                                    >
+                                                        <div
+                                                            class="position-absolute top-0 translate-middle-y start-0 mt-n2 py-2 px-3 rounded-top-4 small fw-semibold text-primary bg-secondary-subtle"
+                                                        >
+                                                            MEMBER
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="full-name"
+                                                                class="form-label"
+                                                                >Full Name
+                                                                <span
+                                                                    class="text-danger"
+                                                                    >*</span
+                                                                ></label
+                                                            >
+                                                            <input
+                                                                type="text"
+                                                                name="full-name"
+                                                                id="full-name"
+                                                                class="form-control"
+                                                                required
+                                                            />
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="id-number"
+                                                                class="form-label"
+                                                                >ID
+                                                                Number</label
+                                                            >
+                                                            <input
+                                                                type="number"
+                                                                name="id-number"
+                                                                id="id-number"
+                                                                class="form-control"
+                                                            />
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="whatsapp"
+                                                                class="form-label"
+                                                                >WhatsApp</label
+                                                            >
+                                                            <input
+                                                                type="text"
+                                                                name="whatsapp"
+                                                                id="whatsapp"
+                                                                class="form-control"
+                                                            />
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="email"
+                                                                class="form-label"
+                                                                >Email</label
+                                                            >
+                                                            <input
+                                                                type="email"
+                                                                name="email"
+                                                                id="email"
+                                                                class="form-control"
+                                                            />
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="address"
+                                                                class="form-label"
+                                                                >Address</label
+                                                            >
+                                                            <input
+                                                                type="text"
+                                                                name="address"
+                                                                id="address"
+                                                                class="form-control"
+                                                            />
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="photo"
+                                                                class="form-label"
+                                                                >Profile
+                                                                Photo</label
+                                                            >
+                                                            <input
+                                                                type="file"
+                                                                name="photo"
+                                                                id="photo"
+                                                                class="form-control"
+                                                                accept=".jpg,.jpeg,.png"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="position-relative mb-4 p-3 rounded-end-4 rounded-bottom-4 bg-secondary-subtle"
+                                                    >
+                                                        <div
+                                                            class="position-absolute top-0 translate-middle-y start-0 mt-n2 py-2 px-3 rounded-top-4 small fw-semibold text-primary bg-secondary-subtle"
+                                                        >
+                                                            PAYMENT
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="payment-type"
+                                                                class="form-label"
+                                                                >Payment
+                                                                Type</label
+                                                            >
+                                                            <select
+                                                                name="payment-type"
+                                                                id="payment-type"
+                                                                class="form-select"
+                                                            >
+                                                                <option
+                                                                    value="0"
+                                                                >
+                                                                    Postpaid
+                                                                </option>
+                                                                <option
+                                                                    value="1"
+                                                                >
+                                                                    Prepaid
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <div
+                                                            id="payment-status-form"
+                                                            class="mb-3 d-none"
+                                                        >
+                                                            <label
+                                                                for="payment-status"
+                                                                class="form-label"
+                                                                >Payment
+                                                                Status</label
+                                                            >
+                                                            <select
+                                                                name="payment-status"
+                                                                id="payment-status"
+                                                                class="form-select"
+                                                            >
+                                                                <option
+                                                                    value=""
+                                                                >
+                                                                    Unpaid
+                                                                </option>
+                                                                <option
+                                                                    value=""
+                                                                >
+                                                                    Paid
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="billing-period"
+                                                                class="form-label"
+                                                                >Billing
+                                                                Period</label
+                                                            >
+                                                            <select
+                                                                name="billing-period"
+                                                                id="billing-period"
+                                                                class="form-select"
+                                                            >
+                                                                <option
+                                                                    value=""
+                                                                >
+                                                                    Fixed Date
+                                                                </option>
+                                                                <option
+                                                                    value=""
+                                                                >
+                                                                    Billing
+                                                                    Cycle
+                                                                </option>
+                                                                <option
+                                                                    value=""
+                                                                >
+                                                                    Renewal
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="active-date"
+                                                                class="form-label"
+                                                                >Active
+                                                                Date</label
+                                                            >
+                                                            <input
+                                                                type="date"
+                                                                name="active-date"
+                                                                id="active-date"
+                                                                class="form-control"
+                                                            />
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="amount"
+                                                                class="form-label"
+                                                                >Amount</label
+                                                            >
+                                                            <input
+                                                                type="number"
+                                                                name="amount"
+                                                                id="amount"
+                                                                class="form-control bg-secondary-subtle"
+                                                                readonly
+                                                            />
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="tax"
+                                                                class="form-label"
+                                                                >Tax (%)</label
+                                                            >
+                                                            <input
+                                                                type="number"
+                                                                name="tax"
+                                                                id="tax"
+                                                                class="form-control"
+                                                            />
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="discount"
+                                                                class="form-label"
+                                                                >Discount
+                                                                (%)</label
+                                                            >
+                                                            <input
+                                                                type="number"
+                                                                name="discount"
+                                                                id="discount"
+                                                                class="form-control"
+                                                            />
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="total-payment"
+                                                                class="form-label"
+                                                                >Total
+                                                                Payment</label
+                                                            >
+                                                            <input
+                                                                type="number"
+                                                                name="total-payment"
+                                                                id="total-payment"
+                                                                class="form-control bg-secondary-subtle"
+                                                                readonly
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <a
+                                                    href="customers.html"
+                                                    class="btn btn-secondary"
+                                                >
+                                                    <i
+                                                        class="bi bi-arrow-counterclockwise"
+                                                    ></i>
+                                                    Back
+                                                </a>
+                                                <button
+                                                    type="submit"
+                                                    class="btn btn-primary"
+                                                >
+                                                    <i
+                                                        class="bi bi-floppy2-fill"
+                                                    ></i>
+                                                    Save
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- templating script -->
+        <script src="js/include.offcanvas.js"></script>
+        <script src="js/include.side.nav.js"></script>
+        <script src="js/include.navbar.js"></script>
+        <!-- end oftemplating script -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="assets/datatables/datatables.min.js"></script>
+        <script src="js/dropdown.menu.js"></script>
+        <script src="js/nav.link.js"></script>
+        <script src="js/toggle.sidebar.js"></script>
+        <script>
+            $(document).ready(function () {
+                setTimeout(function () {
+                    $(".nav-to[data-link='customers']").addClass("active");
+                    $(".aside-item[aria-controls='customers-dd']")
+                        .addClass("active")
+                        .find(".dd-indicator")
+                        .toggleClass("bi-chevron-down bi-chevron-up");
+                    $("#customers-dd").addClass("show");
+                }, 50);
+                $("#payment-type").change(function () {
+                    if ($(this).val() == 1) {
+                        $("#payment-status-form").removeClass("d-none");
+                    } else {
+                        $("#payment-status-form").addClass("d-none");
+                    }
+                });
+                $("#add-billing").change(function () {
+                    if ($(this).is(":checked")) {
+                        $("#billing-container").removeClass("d-none");
+                    } else {
+                        $("#billing-container").addClass("d-none");
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
