@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ISP Billing System</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link href="assets/datatables/datatables.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body class="bg-secondary">
+        <!-- offcanvas here -->
+        <div class="py-3 px-1 vh-100">
+            <div class="container-fluid h-100">
+                <!-- remember to remove the id bellow when the font-end templating is no longer used -->
+                <div class="row g-3 justify-content-end h-100" id="side-nav">
+                    <!-- sidebar here -->
+                    <div
+                        id="main-content"
+                        class="col-md-11 col-lg-9 col-xl-10 overflow-y-auto overflow-x-hidden h-100"
+                    >
+                        <!-- remember to remove the id bellow when the font-end templating is no longer used -->
+                        <div class="vstack gap-3 h-100" id="navbar">
+                            <!-- navbar here -->
+                            <div
+                                class="bg-white py-3 px-1 rounded-4 flex-grow-1"
+                            >
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-16">
+                                            <div
+                                                class="hstack justify-content-between mb-3"
+                                            >
+                                                <h2 class="fw-semibold mb-0">
+                                                    Plan Management
+                                                </h2>
+                                            </div>
+                                            <nav aria-label="breadcrumb">
+                                                <ol class="breadcrumb">
+                                                    <li class="breadcrumb-item">
+                                                        <a
+                                                            href="billing-plan.html"
+                                                            >Plan</a
+                                                        >
+                                                    </li>
+                                                    <li
+                                                        class="breadcrumb-item active"
+                                                        aria-current="page"
+                                                    >
+                                                        Form
+                                                    </li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <form action="" method="post">
+                                                <div class="mb-3">
+                                                    <label
+                                                        for="plan-name"
+                                                        class="form-label"
+                                                        >Plan Name
+                                                        <span
+                                                            class="text-danger"
+                                                            >*</span
+                                                        ></label
+                                                    >
+                                                    <input
+                                                        type="text"
+                                                        name="plan-name"
+                                                        id="plan-name"
+                                                        class="form-control"
+                                                        autofocus
+                                                        required
+                                                    />
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="profile"
+                                                                class="form-label"
+                                                                >Profile
+                                                                <span
+                                                                    class="text-danger"
+                                                                    >*</span
+                                                                ></label
+                                                            >
+                                                            <select
+                                                                name="profile"
+                                                                id="profile"
+                                                                class="form-select"
+                                                            >
+                                                                <option
+                                                                    value=""
+                                                                >
+                                                                    -- Select
+                                                                    Profile --
+                                                                </option>
+                                                                <option
+                                                                    value="1"
+                                                                >
+                                                                    10Mbps
+                                                                </option>
+                                                                <option
+                                                                    value="2"
+                                                                >
+                                                                    20Mbps
+                                                                </option>
+                                                                <option
+                                                                    value=""
+                                                                >
+                                                                    30Mbps
+                                                                </option>
+                                                                <option
+                                                                    value=""
+                                                                >
+                                                                    40Mbps
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="profile-type"
+                                                                class="form-label"
+                                                                >Profile Type
+                                                                <span
+                                                                    class="text-danger"
+                                                                    >*</span
+                                                                ></label
+                                                            >
+                                                            <input
+                                                                type="text"
+                                                                name="profile-type"
+                                                                id="profile-type"
+                                                                class="form-control"
+                                                                disabled
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label
+                                                        for="payment-type"
+                                                        class="form-label"
+                                                        >Payment Type
+                                                        <span
+                                                            class="text-danger"
+                                                            >*</span
+                                                        ></label
+                                                    >
+                                                    <select
+                                                        name="payment-type"
+                                                        id="payment-type"
+                                                        class="form-select"
+                                                    >
+                                                        <option value="">
+                                                            -- Select Payment
+                                                            Type
+                                                        </option>
+                                                        <option value="0">
+                                                            Postpaid
+                                                        </option>
+                                                        <option value="1">
+                                                            Prepaid
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label
+                                                        for="billing-period"
+                                                        class="form-label"
+                                                        >Billing Period
+                                                        <span
+                                                            class="text-danger"
+                                                            >*</span
+                                                        ></label
+                                                    >
+                                                    <select
+                                                        name="billing-period"
+                                                        id="billing-period"
+                                                        class="form-select"
+                                                    >
+                                                        <option value="">
+                                                            -- Select Billing
+                                                            Period --
+                                                        </option>
+                                                        <option value="">
+                                                            Fixed Date
+                                                        </option>
+                                                        <option value="">
+                                                            Billing Cycle
+                                                        </option>
+                                                        <option value="">
+                                                            Renewal
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <div class="row">
+                                                    <div
+                                                        class="col-md-6 col-lg-3"
+                                                    >
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="price"
+                                                                class="form-label"
+                                                                >Price
+                                                                <span
+                                                                    class="text-danger"
+                                                                    >*</span
+                                                                ></label
+                                                            >
+                                                            <input
+                                                                type="number"
+                                                                name="price"
+                                                                id="price"
+                                                                class="form-control"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="col-md-6 col-lg-3"
+                                                    >
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="tax"
+                                                                class="form-label"
+                                                                >Tax (%)
+                                                                <span
+                                                                    class="text-danger"
+                                                                    >*</span
+                                                                ></label
+                                                            >
+                                                            <input
+                                                                type="number"
+                                                                name="tax"
+                                                                id="tax"
+                                                                class="form-control tax-disc"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="col-md-6 col-lg-3"
+                                                    >
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="discount"
+                                                                class="form-label"
+                                                                >Discount (%)
+                                                                <span
+                                                                    class="text-danger"
+                                                                    >*</span
+                                                                ></label
+                                                            >
+                                                            <input
+                                                                type="number"
+                                                                name="discount"
+                                                                id="discount"
+                                                                class="form-control tax-disc"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div
+                                                        class="col-md-6 col-lg-3"
+                                                    >
+                                                        <div class="mb-3">
+                                                            <label
+                                                                for="total-payment"
+                                                                class="form-label"
+                                                                >Total Payment
+                                                                <span
+                                                                    class="text-danger"
+                                                                    >*</span
+                                                                ></label
+                                                            >
+                                                            <input
+                                                                type="number"
+                                                                name="total-payment"
+                                                                id="total-payment"
+                                                                class="form-control"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <a
+                                                    href="billing-plan.html"
+                                                    class="btn btn-secondary"
+                                                >
+                                                    <i
+                                                        class="bi bi-arrow-counterclockwise"
+                                                    ></i>
+                                                    Back
+                                                </a>
+                                                <button
+                                                    type="submit"
+                                                    class="btn btn-primary"
+                                                >
+                                                    <i
+                                                        class="bi bi-floppy2-fill"
+                                                    ></i>
+                                                    Submit
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- templating script -->
+        <script src="js/include.offcanvas.js"></script>
+        <script src="js/include.side.nav.js"></script>
+        <script src="js/include.navbar.js"></script>
+        <!-- end oftemplating script -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="assets/datatables/datatables.min.js"></script>
+        <script src="js/dropdown.menu.js"></script>
+        <script src="js/nav.link.js"></script>
+        <script src="js/toggle.sidebar.js"></script>
+        <script>
+            $(document).ready(function () {
+                setTimeout(function () {
+                    $(".nav-to[data-link='billing-plan']").addClass("active");
+                    $(".aside-item[aria-controls='billing-dd']")
+                        .addClass("active")
+                        .find(".dd-indicator")
+                        .toggleClass("bi-chevron-down bi-chevron-up");
+                    $("#billing-dd").addClass("show");
+                }, 50);
+
+                $("#profile").change(function () {
+                    if ($("#profile").val() > 0) {
+                        $("#profile-type").val("Hotspot");
+                    } else {
+                        $("#profile-type").val("PPPoE");
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ISP Billing System</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link href="assets/datatables/datatables.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body class="bg-secondary">
+        <!-- offcanvas here -->
+        <div class="py-3 px-1 vh-100">
+            <div class="container-fluid h-100">
+                <!-- remember to remove the id bellow when the font-end templating is no longer used -->
+                <div class="row g-3 justify-content-end h-100" id="side-nav">
+                    <!-- sidebar here -->
+                    <div
+                        id="main-content"
+                        class="col-md-11 col-lg-9 col-xl-10 overflow-y-auto overflow-x-hidden h-100"
+                    >
+                        <!-- remember to remove the id bellow when the font-end templating is no longer used -->
+                        <div class="vstack gap-3 h-100" id="navbar">
+                            <!-- navbar here -->
+                            <div
+                                class="bg-white py-3 px-1 rounded-4 flex-grow-1"
+                            >
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-16">
+                                            <div
+                                                class="hstack justify-content-between mb-3"
+                                            >
+                                                <h2 class="fw-semibold mb-0">
+                                                    Billing Settings
+                                                </h2>
+                                            </div>
+                                            <table class="mt-5">
+                                                <tbody>
+                                                    <tr>
+                                                        <td
+                                                            colspan="2"
+                                                            class="opacity-50 fw-semibold small"
+                                                        >
+                                                            TERM
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="align-middle">
+                                                        <td>
+                                                            Billing cycle length
+                                                        </td>
+                                                        <td class="p-2">
+                                                            <input
+                                                                type="number"
+                                                                name="cycle-length"
+                                                                id="cycle-length"
+                                                                class="form-control"
+                                                                value="30"
+                                                            />
+                                                        </td>
+                                                        <td>days</td>
+                                                    </tr>
+                                                    <tr class="align-middle">
+                                                        <td>
+                                                            Invoices are
+                                                            generated
+                                                            <span
+                                                                class="fw-medium text-yellow"
+                                                                >?</span
+                                                            >
+                                                            days before the
+                                                            subscription period
+                                                            is ended
+                                                        </td>
+                                                        <td class="p-2">
+                                                            <input
+                                                                type="number"
+                                                                name="cycle-length"
+                                                                id="cycle-length"
+                                                                class="form-control"
+                                                                value="7"
+                                                            />
+                                                        </td>
+                                                        <td>days</td>
+                                                    </tr>
+                                                    <tr class="align-middle">
+                                                        <td>
+                                                            Invoices are due
+                                                            <span
+                                                                class="fw-medium text-yellow"
+                                                                >?</span
+                                                            >
+                                                            days after it is
+                                                            generated
+                                                        </td>
+                                                        <td class="p-2">
+                                                            <input
+                                                                type="number"
+                                                                name="cycle-length"
+                                                                id="cycle-length"
+                                                                class="form-control"
+                                                                value="7"
+                                                            />
+                                                        </td>
+                                                        <td>days</td>
+                                                    </tr>
+                                                    <tr class="align-middle">
+                                                        <td>
+                                                            Customer is
+                                                            suspended
+                                                            <span
+                                                                class="fw-medium text-yellow"
+                                                                >?</span
+                                                            >
+                                                            days after the due
+                                                            date of their
+                                                            invoice
+                                                        </td>
+                                                        <td class="p-2">
+                                                            <input
+                                                                type="number"
+                                                                name="cycle-length"
+                                                                id="cycle-length"
+                                                                class="form-control"
+                                                                value="1"
+                                                            />
+                                                        </td>
+                                                        <td>days</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td
+                                                            colspan="2"
+                                                            class="opacity-50 fw-semibold small pt-4"
+                                                        >
+                                                            NOTIFICATION
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="align-middle">
+                                                        <td>
+                                                            Notification is sent
+                                                            <span
+                                                                class="fw-medium text-yellow"
+                                                                >?</span
+                                                            >
+                                                            days before the
+                                                            invoice is due
+                                                        </td>
+                                                        <td class="p-2">
+                                                            <input
+                                                                type="number"
+                                                                name="cycle-length"
+                                                                id="cycle-length"
+                                                                class="form-control"
+                                                                value="1"
+                                                            />
+                                                        </td>
+                                                        <td>days</td>
+                                                    </tr>
+                                                    <tr class="align-middle">
+                                                        <td>
+                                                            Send notification
+                                                            when the invoice is
+                                                            generated
+                                                        </td>
+                                                        <td
+                                                            colspan="2"
+                                                            class="p-2"
+                                                        >
+                                                            <div
+                                                                class="form-check"
+                                                            >
+                                                                <input
+                                                                    class="form-check-input"
+                                                                    type="checkbox"
+                                                                    value=""
+                                                                    id="notif-invoice"
+                                                                    name="notif-invoice"
+                                                                    checked
+                                                                />
+                                                                <label
+                                                                    class="form-check-label"
+                                                                    for="notif-invoice"
+                                                                >
+                                                                    Yes
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="align-middle">
+                                                        <td>
+                                                            Send notification
+                                                            when the payment is
+                                                            made
+                                                        </td>
+                                                        <td
+                                                            colspan="2"
+                                                            class="p-2"
+                                                        >
+                                                            <div
+                                                                class="form-check"
+                                                            >
+                                                                <input
+                                                                    class="form-check-input"
+                                                                    type="checkbox"
+                                                                    value=""
+                                                                    id="notif-payment"
+                                                                    name="notif-payment"
+                                                                    checked
+                                                                />
+                                                                <label
+                                                                    class="form-check-label"
+                                                                    for="notif-payment"
+                                                                >
+                                                                    Yes
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="align-middle">
+                                                        <td>
+                                                            Send notification
+                                                            when there is a
+                                                            change in the
+                                                            customer
+                                                            subscription status
+                                                        </td>
+                                                        <td
+                                                            colspan="2"
+                                                            class="p-2"
+                                                        >
+                                                            <div
+                                                                class="form-check"
+                                                            >
+                                                                <input
+                                                                    class="form-check-input"
+                                                                    type="checkbox"
+                                                                    value=""
+                                                                    id="notif-invoice"
+                                                                    name="notif-invoice"
+                                                                    checked
+                                                                />
+                                                                <label
+                                                                    class="form-check-label"
+                                                                    for="notif-invoice"
+                                                                >
+                                                                    Yes
+                                                                </label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <button
+                                                type="submit"
+                                                class="btn btn-primary mt-4"
+                                            >
+                                                <i
+                                                    class="bi bi-floppy2-fill"
+                                                ></i>
+                                                Save Settings
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- templating script -->
+        <script src="js/include.offcanvas.js"></script>
+        <script src="js/include.side.nav.js"></script>
+        <script src="js/include.navbar.js"></script>
+        <!-- end oftemplating script -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="assets/datatables/datatables.min.js"></script>
+        <script src="js/dropdown.menu.js"></script>
+        <script src="js/nav.link.js"></script>
+        <script src="js/toggle.sidebar.js"></script>
+        <script>
+            $(document).ready(function () {
+                setTimeout(function () {
+                    $(".nav-to[data-link='billing-settings']").addClass(
+                        "active"
+                    );
+                    $(".aside-item[aria-controls='billing-dd']")
+                        .addClass("active")
+                        .find(".dd-indicator")
+                        .toggleClass("bi-chevron-down bi-chevron-up");
+                    $("#billing-dd").addClass("show");
+                }, 50);
+            });
+        </script>
+    </body>
+</html>

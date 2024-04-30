@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ISP Billing System</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+            rel="stylesheet"
+        />
+        <link href="assets/datatables/datatables.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body class="bg-secondary">
+        <!-- offcanvas here -->
+        <div class="py-3 px-1 vh-100">
+            <div class="container-fluid h-100">
+                <!-- remember to remove the id bellow when the font-end templating is no longer used -->
+                <div class="row g-3 justify-content-end h-100" id="side-nav">
+                    <!-- sidebar here -->
+                    <div
+                        id="main-content"
+                        class="col-md-11 col-lg-9 col-xl-10 overflow-y-auto overflow-x-hidden h-100"
+                    >
+                        <!-- remember to remove the id bellow when the font-end templating is no longer used -->
+                        <div class="vstack gap-3 h-100" id="navbar">
+                            <!-- navbar here -->
+                            <div
+                                class="bg-white py-3 px-1 rounded-4 flex-grow-1"
+                            >
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-16">
+                                            <div
+                                                class="hstack justify-content-between mb-3"
+                                            >
+                                                <h2 class="fw-semibold mb-0">
+                                                    Invoice
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table
+                                        id="customer-tbl"
+                                        class="table table-borderless table-hover text-nowrap border-bottom"
+                                    >
+                                        <thead class="opacity-50">
+                                            <tr>
+                                                <th
+                                                    class="border-top border-bottom"
+                                                >
+                                                    Name
+                                                </th>
+                                                <th
+                                                    class="border-top border-bottom"
+                                                >
+                                                    Plan
+                                                </th>
+                                                <th
+                                                    class="border-top border-bottom"
+                                                >
+                                                    Subscription Period
+                                                </th>
+                                                <th
+                                                    class="border-top border-bottom"
+                                                >
+                                                    Status
+                                                </th>
+                                                <th
+                                                    class="border-top border-bottom"
+                                                >
+                                                    Options
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="fw-medium">
+                                            <tr class="align-middle">
+                                                <td class="text-nowrap">
+                                                    <a
+                                                        href="#"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#customer-modal"
+                                                        class="link-blue"
+                                                    >
+                                                        <img
+                                                            src="img/user-icon.png"
+                                                            alt="Natalie Brown"
+                                                            class="rounded-circle w-f25 me-1"
+                                                        />
+                                                        Natalie Brown
+                                                    </a>
+                                                </td>
+                                                <td class="text-nowrap">
+                                                    Home 20Mbps
+                                                </td>
+                                                <td class="text-nowrap">
+                                                    <a
+                                                        href="#"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#invoice-modal"
+                                                        class="link-blue"
+                                                    >
+                                                        2023/09/05 - 2023/10/05
+                                                    </a>
+                                                </td>
+                                                <td
+                                                    class="fw-semibold text-nowrap text-green"
+                                                >
+                                                    <a
+                                                        href="#"
+                                                        class="link-green"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#payment-modal"
+                                                        >paid</a
+                                                    >
+                                                </td>
+                                                <td>
+                                                    <a
+                                                        href="https://wa.me/08123456789"
+                                                        target="_blank"
+                                                        class="btn btn-green btn-sm py-1 px-2"
+                                                        title="WhatsApp"
+                                                    >
+                                                        <i
+                                                            class="bi bi-whatsapp small"
+                                                        ></i>
+                                                        WhatsApp
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            <tr class="align-middle">
+                                                <td class="text-nowrap">
+                                                    <a
+                                                        href="#"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#customer-modal"
+                                                        class="link-blue"
+                                                    >
+                                                        <img
+                                                            src="img/person-3.jpg"
+                                                            alt="Bob Jackson"
+                                                            class="rounded-circle w-f25 me-1"
+                                                        />
+                                                        Bob Jackson
+                                                    </a>
+                                                </td>
+                                                <td class="text-nowrap">
+                                                    Home 35Mbps
+                                                </td>
+                                                <td class="text-nowrap">
+                                                    <a
+                                                        href="#"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#invoice-modal"
+                                                        class="link-blue"
+                                                    >
+                                                        2023/09/05 - 2023/10/05
+                                                    </a>
+                                                </td>
+                                                <td
+                                                    class="fw-semibold text-nowrap"
+                                                >
+                                                    <a
+                                                        href="#"
+                                                        class="link-yellow"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#payment-modal"
+                                                        >unpaid</a
+                                                    >
+                                                </td>
+                                                <td>
+                                                    <a
+                                                        href="#"
+                                                        class="btn btn-blue btn-sm py-1 px-2"
+                                                        title="Pay Invoice"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#pay-modal"
+                                                    >
+                                                        <i
+                                                            class="bi bi-cash small"
+                                                        ></i>
+                                                        Pay
+                                                    </a>
+                                                    <a
+                                                        href="#"
+                                                        class="btn btn-yellow btn-sm py-1 px-2"
+                                                        title="Payment Gateway"
+                                                    >
+                                                        <i
+                                                            class="bi bi-qr-code small"
+                                                        ></i>
+                                                        QR Code
+                                                    </a>
+                                                    <a
+                                                        href="https://wa.me/08123456789"
+                                                        target="_blank"
+                                                        class="btn btn-green btn-sm py-1 px-2"
+                                                        title="WhatsApp"
+                                                    >
+                                                        <i
+                                                            class="bi bi-whatsapp small"
+                                                        ></i>
+                                                        WhatsApp
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div
+            class="modal fade"
+            id="customer-modal"
+            tabindex="-1"
+            aria-labelledby="customer-modalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="customer-modalLabel">
+                            Customer Detail
+                        </h1>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td class="text-nowrap">Username</td>
+                                    <td>:</td>
+                                    <td>nataliebrown</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Full Name</td>
+                                    <td>:</td>
+                                    <td>Natalie Brown</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">ID Number</td>
+                                    <td>:</td>
+                                    <td>510110408860001</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">WhatsApp</td>
+                                    <td>:</td>
+                                    <td>
+                                        <a
+                                            href="https://wa.me/628123456789"
+                                            target="_blank"
+                                            class="link-blue"
+                                            >08123456789</a
+                                        >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Email</td>
+                                    <td>:</td>
+                                    <td>
+                                        <a
+                                            href="mailto:nataliebrown@mail.com"
+                                            target="_blank"
+                                            class="link-blue"
+                                            >nataliebrown@mail.com</a
+                                        >
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Address</td>
+                                    <td>:</td>
+                                    <td>
+                                        Jl. Raya Besar, Gang Kecil, No. 88, Kota
+                                        Besar
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        colspan="3"
+                                        class="fw-semibold opacity-50 small pt-5"
+                                    >
+                                        CURRENT SUBSCRIPTION
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">User Type</td>
+                                    <td>:</td>
+                                    <td>PPPoE</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">User Plan</td>
+                                    <td>:</td>
+                                    <td>Fiber up to 35 Mbps</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Payment Type</td>
+                                    <td>:</td>
+                                    <td>Prepaid</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Billing Period</td>
+                                    <td>:</td>
+                                    <td>Fixed Date</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Price</td>
+                                    <td>:</td>
+                                    <td>Rp 360.360</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Tax</td>
+                                    <td>:</td>
+                                    <td>11%</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Discount</td>
+                                    <td>:</td>
+                                    <td>0%</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Total Payment</td>
+                                    <td>:</td>
+                                    <td>Rp 400.000</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        colspan="3"
+                                        class="fw-semibold opacity-50 small pt-5"
+                                    >
+                                        CONSTRAINTS
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Router NAS</td>
+                                    <td>:</td>
+                                    <td>All</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">IP Address</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Service Name</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        colspan="3"
+                                        class="fw-semibold opacity-50 small pt-5"
+                                    >
+                                        STATUS
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Status</td>
+                                    <td>:</td>
+                                    <td class="text-green">Active</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        colspan="3"
+                                        class="fw-semibold opacity-50 small pt-5"
+                                    >
+                                        LOG
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Created</td>
+                                    <td>:</td>
+                                    <td>2024/03/03</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div
+            class="modal fade"
+            id="payment-modal"
+            tabindex="-1"
+            aria-labelledby="payment-modalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="payment-modalLabel">
+                            History of Payment
+                        </h1>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table
+                                id="payment-history-tbl"
+                                class="table table-borderless table-hover table-sm"
+                            >
+                                <thead class="opacity-50">
+                                    <tr>
+                                        <th class="border-top border-bottom">
+                                            Invoice Number
+                                        </th>
+                                        <th class="border-top border-bottom">
+                                            Invoice Date
+                                        </th>
+                                        <th class="border-top border-bottom">
+                                            Due Date
+                                        </th>
+                                        <th class="border-top border-bottom">
+                                            Subscription Period
+                                        </th>
+                                        <th class="border-top border-bottom">
+                                            Payment Date
+                                        </th>
+                                        <th class="border-top border-bottom">
+                                            Payment Method
+                                        </th>
+                                        <th class="border-top border-bottom">
+                                            Status
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-nowrap">#123456</td>
+                                        <td class="text-nowrap">2023/08/12</td>
+                                        <td class="text-nowrap">2023/08/26</td>
+                                        <td class="text-nowrap">
+                                            2023/08/19 - 2023/09/19
+                                        </td>
+                                        <td class="text-nowrap">2023/08/14</td>
+                                        <td class="text-nowrap">Cash</td>
+                                        <td class="text-nowrap">
+                                            <span class="text-green">Paid</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-nowrap">#123457</td>
+                                        <td class="text-nowrap">2023/09/12</td>
+                                        <td class="text-nowrap">2023/09/26</td>
+                                        <td class="text-nowrap">
+                                            2023/09/19 - 2023/10/19
+                                        </td>
+                                        <td class="text-nowrap">-</td>
+                                        <td class="text-nowrap">-</td>
+                                        <td class="text-nowrap">
+                                            <span class="text-yellow"
+                                                >Unpaid</span
+                                            >
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div
+            class="modal fade"
+            id="invoice-modal"
+            tabindex="-1"
+            aria-labelledby="invoice-modalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="invoice-modalLabel">
+                            Current Invoice
+                        </h1>
+                        <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td class="text-nowrap">Invoice Number</td>
+                                    <td>:</td>
+                                    <td>#123456</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">User Plan</td>
+                                    <td>:</td>
+                                    <td>Fiber up to 35 Mbps</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Total Payment</td>
+                                    <td>:</td>
+                                    <td>Rp 400.000</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Invoice Date</td>
+                                    <td>:</td>
+                                    <td>2023/09/12</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Due Date</td>
+                                    <td>:</td>
+                                    <td>2023/09/23</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">
+                                        Subscription Period
+                                    </td>
+                                    <td>:</td>
+                                    <td>2023/09/23 - 2023/10/23</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Payment Date</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Payment Method</td>
+                                    <td>:</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-nowrap">Status</td>
+                                    <td>:</td>
+                                    <td class="fw-semibold text-yellow">
+                                        Unpaid
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div
+            class="modal fade"
+            id="pay-modal"
+            tabindex="-1"
+            aria-labelledby="pay-modalLabel"
+            aria-hidden="true"
+            data-bs-backdrop="static"
+        >
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <i
+                                class="bi bi-exclamation-diamond-fill fs-1 text-yellow mb-3"
+                            ></i>
+                            <div class="fs-5 mb-3">Payment Confirmation</div>
+                            <div class="mb-3">
+                                Invoice #123456 - Natalie Brown
+                            </div>
+                            <form action="" method="post">
+                                <div class="mb-3">
+                                    <select
+                                        name="payment-method"
+                                        id="payment-method"
+                                        class="form-select text-center"
+                                        required
+                                    >
+                                        <option value="">
+                                            -- Select Payment Method --
+                                        </option>
+                                        <option value="">Cash</option>
+                                        <option value="">Transfer</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="d-flex justify-content-center gap-2">
+                            <button
+                                type="button"
+                                class="btn btn-secondary w-25"
+                                data-bs-dismiss="modal"
+                            >
+                                Cancel
+                            </button>
+                            <button class="btn btn-primary w-25">Pay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- templating script -->
+        <script src="js/include.offcanvas.js"></script>
+        <script src="js/include.side.nav.js"></script>
+        <script src="js/include.navbar.js"></script>
+        <!-- end oftemplating script -->
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="assets/datatables/datatables.min.js"></script>
+        <script src="js/dropdown.menu.js"></script>
+        <script src="js/nav.link.js"></script>
+        <script src="js/toggle.sidebar.js"></script>
+        <script>
+            $("#customer-tbl").DataTable({
+                columns: [
+                    null,
+                    null,
+                    null,
+                    null,
+                    { searchable: false, orderable: false },
+                ],
+                order: [[2, "asc"]],
+            });
+            $("#payment-history-tbl").DataTable({
+                columns: [null, null, null, null, null, null, null],
+                order: [[1, "desc"]],
+            });
+            $(document).ready(function () {
+                setTimeout(function () {
+                    $(".nav-to[data-link='billing-invoice']").addClass(
+                        "active"
+                    );
+                    $(".aside-item[aria-controls='billing-dd']")
+                        .addClass("active")
+                        .find(".dd-indicator")
+                        .toggleClass("bi-chevron-down bi-chevron-up");
+                    $("#billing-dd").addClass("show");
+                }, 50);
+            });
+        </script>
+    </body>
+</html>
